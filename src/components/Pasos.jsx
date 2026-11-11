@@ -6,7 +6,7 @@ import { lokacije } from '../rb/data/lokacije'
 const RB = [...lokacije].sort((a, b) => a.redosled - b.redosled)
 const RB_IDS = RB.map((l) => 'rb-' + l.id)
 
-const BOJE = ['#9B2D20', '#1F3A5F', '#6B5A2E']
+const BOJE = ['#A32A1E', '#1E3A6E', '#7A5A1E']
 
 export default function Pasos({ pecati, idi }) {
   const { t, s, jezik } = useJ()

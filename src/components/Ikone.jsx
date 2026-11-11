@@ -7,13 +7,13 @@ export const Reci = () => (<svg {...osnova}><path d="M4 6h16M4 12h10M4 18h13" />
 export const Pasos = () => (<svg {...osnova}><rect x="5" y="3" width="14" height="18" rx="2" /><circle cx="12" cy="11" r="3" /><path d="M9 17h6" /></svg>)
 export const Nazad = () => (<svg {...osnova}><path d="M15 18l-6-6 6-6" /></svg>)
 
-export const Krst = ({ boja = '#D9B65A', velicina = 26 }) => (
+export const Krst = ({ boja = '#D4B04A', velicina = 26 }) => (
   <svg width={velicina * 0.82} height={velicina} viewBox="0 0 28 34" aria-hidden="true">
     <path d="M14 1v32M8 7h12M4 14h20M9 25l10-4" stroke={boja} strokeWidth="2.4" fill="none" strokeLinecap="round" />
   </svg>
 )
 
-export function Pecat({ tekst, boja = '#9B2D20', velicina = 92, nagib = -8 }) {
+export function Pecat({ tekst, boja = '#A32A1E', velicina = 92, nagib = -8 }) {
   return (
     <svg width={velicina} height={velicina} viewBox="0 0 92 92" style={{ transform: `rotate(${nagib}deg)` }} aria-hidden="true">
       <circle cx="46" cy="46" r="43" fill="none" stroke={boja} strokeWidth="3" />

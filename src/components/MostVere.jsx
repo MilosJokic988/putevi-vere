@@ -157,7 +157,7 @@ export default function MostVere({ idi, otvoriZitije }) {
             return (
               <g key={i}>
                 <path d={d} fill="none" stroke="rgba(243,235,221,.9)" strokeWidth={akt ? 9 : 6} strokeLinecap="round" />
-                <path d={d} fill="none" stroke={akt ? '#9B2D20' : '#B8902A'} strokeWidth={akt ? 5 : 3} strokeLinecap="round" strokeDasharray={v.provereno ? undefined : '8 6'} />
+                <path d={d} fill="none" stroke={akt ? '#A32A1E' : '#C9A227'} strokeWidth={akt ? 5 : 3} strokeLinecap="round" strokeDasharray={v.provereno ? undefined : '8 6'} />
                 <path className="veza-klik" d={d} fill="none" stroke="transparent" strokeWidth="22" onClick={() => setIzabrana({ vrsta: 'veza', id: i })} />
               </g>
             )

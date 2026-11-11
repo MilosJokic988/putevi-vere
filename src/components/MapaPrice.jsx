@@ -19,7 +19,7 @@ export default function MapaPrice({ pricaId, nazad }) {
     const m = L.map(elRef.current, { zoomControl: true, minZoom: 3, maxZoom: 12 })
     postaviPodlogu(m, stilMape)
     if (lista.length > 1) {
-      L.polyline(lista.map((x) => x.ll), { color: '#9B2D20', weight: 3, dashArray: '2 9', lineCap: 'round' }).addTo(m)
+      L.polyline(lista.map((x) => x.ll), { color: '#A32A1E', weight: 3, dashArray: '2 9', lineCap: 'round' }).addTo(m)
     }
     lista.forEach((x, i) => {
       const ikona = L.divIcon({ className: 'marker-omotac', html: `<div class="marker-broj">${i + 1}</div>`, iconSize: [30, 30], iconAnchor: [15, 15] })
