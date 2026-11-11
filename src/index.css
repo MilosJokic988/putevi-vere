@@ -383,3 +383,11 @@ svg.linije { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 6
   font-family: var(--naslov); color: var(--crvena); font-size: 2.1em; line-height: 0.9; float: left; margin: 4px 6px 0 0;
 }
 .uvodni:has(.inicijal)::first-letter { font: inherit; color: inherit; float: none; margin: 0; }
+
+/* ===== Uklanjanje pečata ===== */
+.ukloni-pecat { display: block; margin-top: 6px; padding: 4px 0; border: 0; background: none; color: var(--siva); font-size: 13px; text-decoration: underline; }
+.dugme-uredi { border: 1.5px solid #d4b04a; background: none; color: #f7ebd0; border-radius: 999px; padding: 6px 14px; min-height: 36px; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.dugme-uredi.akt { background: #d4b04a; color: var(--plava); }
+.pecat-polje { position: relative; }
+.pecat-polje.brisanje > svg, .pecat-polje.brisanje > .pecat { opacity: 0.55; }
+.pecat-x { position: absolute; top: 0; right: 10px; width: 28px; height: 28px; border-radius: 50%; background: var(--crvena); color: #fff8e8; font-size: 20px; line-height: 26px; text-align: center; z-index: 2; }

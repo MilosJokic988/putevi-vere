@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Pecat } from './Ikone'
 import { useJ } from '../i18n'
 import { lokacije } from '../rb/data/lokacije'
@@ -8,8 +9,9 @@ const RB_IDS = RB.map((l) => 'rb-' + l.id)
 
 const BOJE = ['#A32A1E', '#1E3A6E', '#7A5A1E']
 
-export default function Pasos({ pecati, idi }) {
+export default function Pasos({ pecati, idi, ukloniPecat }) {
   const { t, s, jezik } = useJ()
+  const [uredi, setUredi] = useState(false)
   const sveTure = s.ture.map((x) => (x.id === 'I' ? { ...x, mesta: RB_IDS } : x)).filter((x) => x.mesta)
   const ime = (id) => (id.startsWith('rb-') ? RB.find((l) => 'rb-' + l.id === id)?.[jezik].naziv : s.mesta[id].ime)
   const otvori = (id) => (id.startsWith('rb-') ? idi('beograd') : idi('mesto', id))
@@ -21,7 +23,15 @@ export default function Pasos({ pecati, idi }) {
   return (
     <>
       <header className="zaglavlje">
-        <h1 className="naslov-ekrana">{t.pasosNaslov}</h1>
+        <div className="zaglavlje-red">
+          <h1 className="naslov-ekrana">{t.pasosNaslov}</h1>
+          {pecati.length > 0 && (
+            <button className={`dugme-uredi ${uredi ? 'akt' : ''}`} onClick={() => setUredi((u) => !u)} aria-pressed={uredi}>
+              {uredi ? t.gotovo : t.uredi}
+            </button>
+          )}
+        </div>
+        {uredi && <p className="podnaslov-sitno">{t.urediUputstvo}</p>}
         <p className="podnaslov-sitno">{t.sakupljeno(broj, ukupno)}</p>
         <div className="napredak"><div style={{ width: `${procenat}%` }} /></div>
       </header>
@@ -37,7 +47,13 @@ export default function Pasos({ pecati, idi }) {
                 {tu.mesta.map((id, i) => {
                   const ima = pecati.includes(id)
                   return (
-                    <button key={id} className="pecat-polje" onClick={() => otvori(id)}>
+                    <button
+                      key={id}
+                      className={`pecat-polje ${uredi && ima ? 'brisanje' : ''}`}
+                      onClick={() => (uredi ? ima && ukloniPecat(id) : otvori(id))}
+                      aria-label={uredi && ima ? `${t.ukloniPecat}: ${ime(id)}` : undefined}
+                    >
+                      {uredi && ima && <span className="pecat-x" aria-hidden="true">×</span>}
                       {ima ? <Pecat tekst="2026" boja={BOJE[i % 3]} velicina={84} nagib={i % 2 ? 6 : -8} /> : <span className="prazan-pecat">?</span>}
                       <span>{ime(id)}</span>
                     </button>

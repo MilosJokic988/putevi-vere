@@ -4,7 +4,7 @@ import { useJ } from '../i18n'
 
 const POGLEDI = ['istorija', 'vera', 'put', 'kontekst']
 
-export default function Mesto({ mestoId, nazad, pecati, dodajPecat, otvoriZitije }) {
+export default function Mesto({ mestoId, nazad, pecati, dodajPecat, ukloniPecat, otvoriZitije }) {
   const { t, s } = useJ()
   const [pogled, setPogled] = useState('istorija')
   const m = s.mesta[mestoId]
@@ -51,6 +51,7 @@ export default function Mesto({ mestoId, nazad, pecati, dodajPecat, otvoriZitije
             <div>
               <b>{t.pecatUPasosu}</b>
               <small>{t.bioSi}</small>
+              <button className="ukloni-pecat" onClick={() => ukloniPecat(mestoId)}>{t.ukloniPecat}</button>
             </div>
           </div>
         ) : (

@@ -58,7 +58,8 @@ function Aplikacija() {
   }
   const dodajPecat = (id) => setPecati((p) => (p.includes(id) ? p : [...p, id]))
 
-  const zajednicko = { idi, nazad, otvoriZitije: setZitije, pecati, dodajPecat }
+  const ukloniPecat = (id) => setPecati((p) => p.filter((x) => x !== id))
+  const zajednicko = { idi, nazad, otvoriZitije: setZitije, pecati, dodajPecat, ukloniPecat }
 
   let sadrzaj
   switch (ekran.ime) {
